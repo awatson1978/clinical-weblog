@@ -1,0 +1,16 @@
+
+<template name="postFormPage">
+  <div id="postFormPage">
+      <div class="container">
+        {{> postForm }}
+        <br>
+        <div class="col col-md-6 col-md-offset-3">
+          {{#if isNewPost}}
+            <button id="createNewPostButton" type="button" class="fullwidth btn btn-info" width="100%">Create New Post!</button>
+          {{else}}
+            <button id="savePostButton" class="fullwidth btn btn-success">Save Post</button>
+          {{/if}}
+        </div>
+      </div>
+  </div>
+</template>

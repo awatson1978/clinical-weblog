@@ -1,0 +1,31 @@
+<template name="postForm">
+    <div class="col col-md-offset-3 col-md-6">
+      <div class="panel">
+        <form id="customerForm" class="meteor-form">
+
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <input id="titleInput" class="form-control" type="text" placeholder="Title" value="{{title}}">
+            </div>
+            <div class="panel-body">
+              <textarea id="textInput"  class="form-control" rows="8" placeholder="Lorem ispum...">{{text}}</textarea>
+            </div>
+            <div class="panel-footer">
+              {{#each tagList}}
+                <div class="label label-plain label-deletable">
+                  <i class="fa fa-times"></i>  {{tag}}
+                </div>
+              {{/each}}
+              <br><br>
+              <input id="tagsInput"  class="form-control" type="text" placeholder="new tag..." value="">
+            </div>
+          </div>
+
+<!--           <div class='btn btn-info'>active</div>
+          <div class='btn btn-default'>inactive</div> -->
+
+        </form>
+      </div>
+    </div>
+</template>

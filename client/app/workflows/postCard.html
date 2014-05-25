@@ -1,0 +1,17 @@
+<template name="postCard">
+  <div class="card panel panel-default">
+    <div class="panel-heading">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="panel-body">
+      <p>{{ text }}</p>
+    </div>
+    <div class="panel-footer">
+      {{#each tagList}}
+        <div class="label label-plain">
+          {{tag}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

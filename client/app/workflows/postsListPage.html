@@ -1,0 +1,60 @@
+<template name="postsListPage">
+  <div id="postsListPage">
+    <div class="container">
+
+        <div class="row">
+          <div class="col col-md-6">
+            <input id="searchInput" type="text" class="form-control" placeholder="search..." />
+          </div>
+          <div class="centered col col-md-6">
+            <div class="pull-right btn-group">
+              <button id="twentyButton" class="{{isTwentyActive}} btn btn-default">20</button>
+              <button id="fiftyButton" class="{{isFiftyActive}} btn btn-default">50</button>
+              <button id="hundredButton" class="{{isHundredActive}} btn btn-default">100</button>
+            </div>
+          </div>
+        </div>
+      <hr/>
+
+      {{#each postsList}}
+        {{> postCard }}
+      {{/each}}
+
+    <!--
+      <table id="example" class="table table-hover table-striped tablesorter">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Text</th>
+            <th>Active</th>
+            <th>Created At</th>
+            <th>Tags</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each postsList}}
+            <tr class="customerRow">
+              <td>{{title}}</td>
+              <td>{{text}}</td>
+              <td>{{isActive}}</td>
+              <td>{{createdAt}}</td>
+              <td>{{tags}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    -->
+      <hr>
+
+      <div class="btn-group">
+        {{#each paginationButtonList }}
+          {{> paginationButton }}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="paginationButton">
+  <button id="pagination-btn-{{index}}" class="{{pageActive}} pagination-btn btn btn-default">{{getPage}}</button>
+</template>
