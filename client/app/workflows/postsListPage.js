@@ -54,6 +54,16 @@ Template.postsListPage.events({
   'keyup #searchInput':function(){
     Session.set('accountSearchFilter', $('#searchInput').val());
   },
+  // Reset paging when we change tableLimit
+  'click .tableLimit':function(event){
+    // The value of the item clicked upon
+    var thisLimit = $(event.currentTarget).text(); // Is there a better way of geeting this value?
+    // We only need to reset when the limit has actiually changed
+    if ( Session.get('tableLimit') != thisLimit ) { // Note. Don't use !== here as the types are different. string vs. number
+      Session.set('skipCount', 0);
+      Session.set('selectedPagination', 0);
+    }
+  },
   'click #twentyButton':function(){
     Session.set('tableLimit', 20);
   },
