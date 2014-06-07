@@ -53,6 +53,8 @@ Template.postsListPage.helpers({
 Template.postsListPage.events({
   'keyup #searchInput':function(){
     Session.set('accountSearchFilter', $('#searchInput').val());
+    Session.set('skipCount', 0);
+    Session.set('selectedPagination', 0);
   },
   // Reset paging when we change tableLimit
   'click .tableLimit':function(event){
