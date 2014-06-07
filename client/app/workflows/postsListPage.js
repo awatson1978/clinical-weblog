@@ -87,7 +87,11 @@ Template.postsListPage.helpers({
         index: i
       };
     };
-    return paginationArray;
+    if ( paginationArray.length > 1 ){
+      return paginationArray;
+    } else {
+      return [];
+    }
   },
   isTwentyActive: function(){
     if(Session.get('tableLimit') === 20){
