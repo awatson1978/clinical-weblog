@@ -29,7 +29,7 @@ Template.postsListPage.helpers({
   postsList: function(){
     var postsCount = Posts.find({title: { $regex: Session.get('accountSearchFilter'), $options: 'i' }}).count();
     Session.set('receivedData', new Date());
-    Session.set('paginationCount', Math.floor(postsCount / Session.get('tableLimit')));
+    Session.set('paginationCount', Math.floor((postsCount - 1) / Session.get('tableLimit')) + 1);
     return Posts.find(
       {title: { $regex: Session.get('accountSearchFilter'), $options: 'i' }
     },{limit: Session.get('tableLimit'), skip: Session.get('skipCount'), sort: {_id: -1}});
