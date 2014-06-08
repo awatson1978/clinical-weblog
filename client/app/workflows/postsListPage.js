@@ -29,7 +29,7 @@ Template.postsListPage.helpers({
   postsList: function(){
     var postsCount = Posts.find({title: { $regex: Session.get('accountSearchFilter'), $options: 'i' }}).count();
     Session.set('receivedData', new Date());
-    Session.set('paginationCount', Math.floor(postsCount / Session.get('tableLimit')));
+    Session.set('paginationCount', Math.floor((postsCount - 1) / Session.get('tableLimit')) + 1);
     return Posts.find(
       {title: { $regex: Session.get('accountSearchFilter'), $options: 'i' }
     },{limit: Session.get('tableLimit'), skip: Session.get('skipCount'), sort: {_id: -1}});
@@ -53,6 +53,18 @@ Template.postsListPage.helpers({
 Template.postsListPage.events({
   'keyup #searchInput':function(){
     Session.set('accountSearchFilter', $('#searchInput').val());
+    Session.set('skipCount', 0);
+    Session.set('selectedPagination', 0);
+  },
+  // Reset paging when we change tableLimit
+  'click .tableLimit':function(event){
+    // The value of the item clicked upon
+    var thisLimit = $(event.currentTarget).text(); // Is there a better way of geeting this value?
+    // We only need to reset when the limit has actiually changed
+    if ( Session.get('tableLimit') != thisLimit ) { // Note. Don't use !== here as the types are different. string vs. number
+      Session.set('skipCount', 0);
+      Session.set('selectedPagination', 0);
+    }
   },
   'click #twentyButton':function(){
     Session.set('tableLimit', 20);
@@ -87,7 +99,11 @@ Template.postsListPage.helpers({
         index: i
       };
     };
-    return paginationArray;
+    if ( paginationArray.length > 1 ){
+      return paginationArray;
+    } else {
+      return [];
+    }
   },
   isTwentyActive: function(){
     if(Session.get('tableLimit') === 20){
