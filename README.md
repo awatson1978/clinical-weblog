@@ -1,4 +1,4 @@
-clinical-ui-crud-table
+clinical:weblog
 ================
 
 Meteor applet demonstrating a CRUD best-practice using the Blaze layout, Bootstrap3, list with tags, a card based UI, and various other goodies.
