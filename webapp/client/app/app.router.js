@@ -3,7 +3,7 @@
 // Global Configuration
 
 Router.configure({
-  layoutTemplate: 'appLayout',
+  layoutTemplate: 'mainLayout',
   yieldTemplates: {
     'navbarHeader': {to: 'header'},
     'navbarFooter': {to: 'footer'}

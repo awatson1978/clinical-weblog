@@ -2,14 +2,16 @@
   <title>clinical-ui-crud</title>
 </head>
 
-<template name="appLayout">
-  <header id="navbarHeader">
-    {{> yield region='header' }}
-  </header>
-  <div id="mainPanel">
-    {{> yield }}
+<template name="mainLayout">
+  <div id="mainLayout">
+      <header id="navbarHeader">
+        {{> yield region='header' }}
+      </header>
+      <div id="mainPanel">
+        {{> yield }}
+      </div>
+      <footer id="navbarFooter">
+        {{> yield region='footer' }}
+      </footer>
   </div>
-  <footer id="navbarFooter">
-    {{> yield region='footer' }}
-  </footer>
 </template>

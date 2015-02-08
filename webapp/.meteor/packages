@@ -6,6 +6,10 @@
 standard-app-packages
 insecure
 less
-bootstrap-3
-iron-router
-font-awesome
+
+
+iron:router
+nemo64:bootstrap
+natestrauser:font-awesome
+
+clinical:nightwatch
