@@ -3,6 +3,7 @@ clinical:weblog
 
 Meteor applet demonstrating a CRUD best-practice using the Blaze layout, Bootstrap3, list with tags, a card based UI, and various other goodies.
 
+![travis-build](https://travis-ci.org/awatson1978/clinical-weblog.svg?branch=master)  
 
 ========================================
 #### Build A Weblog!
@@ -12,7 +13,7 @@ With version 1.0 of Meteor having been released, the Meteor Cookbook is getting 
 
 
 ========================================
-###Installation   
+###Installation
 
 
 ````sh
