@@ -1,6 +1,5 @@
-Template.postForm.helpers({
 
-});
+
 
 
 

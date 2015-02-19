@@ -12,15 +12,13 @@ Session.setDefault('skipCount', 0);
 //------------------------------------------------
 // ROUTING
 
-Router.map(function(){
-  this.route('postsListPage', {
-    path: '/posts',
-    template: 'postsListPage',
-    waitOn: function(){
-      return Meteor.subscribe('posts');
-    }
-  });
+Router.route("/posts", {
+  template: 'postsListPage',
+  waitOn: function(){
+    return Meteor.subscribe('posts');
+  }
 });
+
 
 //------------------------------------------------
 // HELPERS

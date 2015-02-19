@@ -1,19 +1,3 @@
-// Template.postCard.helpers({
-//   tagList: function(){
-//     var self = this;
-//     console.log('post', this);
-//
-//     var tagArray = [];
-//     if(this.tags){
-//       this.tags.forEach(function(tag){
-//         tagArray.push({post_id: self._id, tag: tag });
-//       });
-//     }
-//
-//     console.log('tagArray', tagArray);
-//     return tagArray;
-//   }
-// });
 
 Template.postCard.events({
   'click .card':function(){

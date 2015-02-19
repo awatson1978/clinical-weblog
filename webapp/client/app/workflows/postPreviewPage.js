@@ -1,16 +1,18 @@
 
-Router.map(function(){
-  this.route('postPreviewPage', {
-    path: '/post/:id',
-    template: 'postPreviewPage',
-    waitOn: function(){
-      return Meteor.subscribe('posts');
-    },
-    data: function () {
-      return Posts.findOne({_id: this.params.id});
-    },
-  });
+Router.route('/post/:id', {
+  template: 'postPreviewPage',
+  waitOn: function(){
+    return Meteor.subscribe('posts');
+  },
+  data: function () {
+    return Posts.findOne({_id: this.params.id});
+  }
 });
+
+
+
+
+
 Template.postPreviewPage.events({
   'click #postEditButton':function(){
     Router.go('/editpost/' + this._id);

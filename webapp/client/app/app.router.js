@@ -11,12 +11,9 @@ Router.configure({
 });
 
 
-Router.map(function(){
-  this.route('homeRoute', {
-    path: '/',
-    template: "postsListPage",
-    waitOn: function(){
-      return Meteor.subscribe('posts');
-    }
-  });
+Router.route('/', {
+  template: "postsListPage",
+  waitOn: function(){
+    return Meteor.subscribe('posts');
+  }
 });

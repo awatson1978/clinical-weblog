@@ -1,25 +1,24 @@
 //-------------------------------------------------------------
 // 0. Sessions Variables
 
-Router.map(function(){
-  this.route('postFormPage', {
-    path: '/newpost',
-    template: 'postFormPage',
-    waitOn: function(){
-      return Meteor.subscribe('posts');
-    }
-  });
-  this.route('postFormPage', {
-    path: '/editpost/:id',
-    template: 'postFormPage',
-    waitOn: function(){
-      return Meteor.subscribe('posts');
-    },
-    data: function(){
-      return Posts.findOne(this.params.id);
-    }
-  });
+
+Router.route("/newpost", {
+  template: 'postFormPage',
+  waitOn: function(){
+    return Meteor.subscribe('posts');
+  }
 });
+
+Router.route("/editpost/:id", {
+  template: 'postFormPage',
+  waitOn: function(){
+    return Meteor.subscribe('posts');
+  },
+  data: function(){
+    return Posts.findOne(this.params.id);
+  }
+});
+
 
 //-------------------------------------------------------------
 // B.  Helpers
